@@ -7,12 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface RatingButtonProps {
   defaultRating?: number;
+  size?: 'big' | 'small';
   disabled?: boolean;
   onChange?: (rating: number) => void;
 }
 
 export default function RatingButton({
   defaultRating = 4,
+  size = 'big',
   disabled = false,
   onChange = (): void => {},
 }: RatingButtonProps): JSX.Element {
@@ -27,12 +29,12 @@ export default function RatingButton({
       stars.push(
         disabled ? (
           <FontAwesomeIcon
-            className="rating-button__star"
+            className={`rating-button__star--${size}`}
             icon={i > rating ? EmptyStarIcon : FilledStarIcon}
           />
         ) : (
           <FontAwesomeIcon
-            className="rating-button__star cursor-pointer"
+            className={`rating-button__star--${size} cursor-pointer`}
             onClick={() => changeRating(i)}
             onMouseEnter={() => setRating(i)}
             icon={isStarEmpty ? EmptyStarIcon : FilledStarIcon}
