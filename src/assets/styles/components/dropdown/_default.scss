@@ -3,8 +3,9 @@
   color: $dark-shade-900;
   text-transform: none;
   border: $dark-shade-900 1px solid;
+  align-items: center;
   &:hover {
-    transform: scale(0);
+    transform: scale(1);
   }
 }
 .content {
