@@ -1,33 +1,44 @@
-import '../../assets/styles/components/block/_default.scss';
 import type { JSX, PropsWithChildren } from 'react';
+import type {
+  Direction,
+  ItemsAlignment,
+  Justification,
+} from '../../helpers/tailwind.helpers';
+import {
+  getDirection,
+  getItemsAlignment,
+  getJustification,
+} from '../../helpers/tailwind.helpers';
 
 export interface BlockProps extends PropsWithChildren {
-  direction?: 'row' | 'row-reverse' | 'col' | 'col-reverse';
-  justify?:
-    | 'normal'
-    | 'start'
-    | 'end'
-    | 'center'
-    | 'between'
-    | 'around'
-    | 'evenly'
-    | 'stretch';
-  alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  direction?: Direction;
+  justify?: Justification;
+  alignItems?: ItemsAlignment;
   gap?: string;
+  element?: keyof JSX.IntrinsicElements;
 }
 
+/**
+ * @param direction
+ * @param justify
+ * @param alignItems
+ * @param gap - Класс TailwindCSS
+ * @param element = Какой HTML элемент использовать в качестве базы блока
+ * @param children
+ */
 export default function Block({
   direction = 'row',
   justify = 'center',
   alignItems = 'center',
-  gap = '0',
+  gap = 'gap-0',
+  element: Element = 'div',
   children,
 }: BlockProps): JSX.Element {
   return (
-    <div
-      className={`flex flex-${direction} justify-${justify} items-${alignItems} gap-${gap}`}
+    <Element
+      className={`flex ${getDirection(direction)} ${getJustification(justify)} ${getItemsAlignment(alignItems)} ${gap}`}
     >
       {children}
-    </div>
+    </Element>
   );
 }
