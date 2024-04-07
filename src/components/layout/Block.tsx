@@ -27,9 +27,9 @@ export interface BlockProps extends PropsWithChildren {
  * @param children
  */
 export default function Block({
-  direction = 'row',
-  justify = 'center',
-  alignItems = 'center',
+  direction,
+  justify,
+  alignItems,
   gap = 'gap-0',
   element: Element = 'div',
   children,
