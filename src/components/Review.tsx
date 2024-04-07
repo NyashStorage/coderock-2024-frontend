@@ -33,6 +33,7 @@ export default function Review({
               })}
             </span>
           </Block>
+          {/* TODO: Поменять на RatingButton, когда компонент будет реализован. */}
           {rating}
         </Block>
         <p>{comment}</p>
