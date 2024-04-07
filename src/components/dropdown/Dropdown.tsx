@@ -1,6 +1,7 @@
 import React, { JSX, PropsWithChildren, useState } from 'react';
-import '../assets/styles/components/dropdown/index.scss';
-import Typography from './Typography';
+import '../../assets/styles/components/dropdown/index.scss';
+import Typography from '../Typography';
+import arr from './arr.png';
 
 export interface DropdownProps extends PropsWithChildren {
   title: string;
@@ -19,6 +20,7 @@ function Dropdown({ title, content }: DropdownProps): JSX.Element {
         onClick={() => setThisOpen(!thisOpen)}
       >
         <Typography variant="body">{title}</Typography>
+        <img src={arr} alt="" className={thisOpen ? 'rotate-180' : ''} />
       </button>
       <div
         className={`${thisOpen ? 'open ' : ''}content absolute inset-x-0 z-10 w-full px-3 overflow-hidden`}

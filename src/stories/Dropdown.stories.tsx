@@ -1,4 +1,4 @@
-import Dropdown from '../components/Dropdown';
+import Dropdown from '../components/dropdown/Dropdown';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
