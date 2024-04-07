@@ -16,5 +16,5 @@ Default.args = {
   comment:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   rating: 4,
-  createdAt: Date.now() - 5 * 60,
+  createdAt: Date.now() - 5 * 60 * 1000,
 };
