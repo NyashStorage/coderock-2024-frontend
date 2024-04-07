@@ -2,6 +2,7 @@ import type { JSX, PropsWithChildren } from 'react';
 import Block from './layout/Block';
 import { formatDistance } from 'date-fns';
 import { ru } from 'date-fns/locale';
+import RatingButton from './buttons/RatingButton';
 
 export interface ReviewProps extends PropsWithChildren {
   authorName: string;
@@ -22,10 +23,12 @@ export default function Review({
   return (
     <Block gap="gap-[10px]">
       {authorAvatar}
+
       <Block direction="column" gap="gap-[10px]">
         <Block justify="between" alignItems="center">
           <Block direction="column">
-            <h3>{authorName}</h3>
+            <span className="font-bold">{authorName}</span>
+
             <span>
               {formatDistance(createdAt, new Date(), {
                 addSuffix: true,
@@ -33,9 +36,10 @@ export default function Review({
               })}
             </span>
           </Block>
-          {/* TODO: Поменять на RatingButton, когда компонент будет реализован. */}
-          {rating}
+
+          <RatingButton defaultRating={rating} size="small" disabled />
         </Block>
+
         <p>{comment}</p>
       </Block>
     </Block>
