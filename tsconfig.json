@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "outDir": "./dist",
+    "baseUrl": "./",
+
+    /* Настройки сборщика */
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true,
+    "jsx": "react-jsx",
+
+    /* Настройки линтинга */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src", "vite.config.ts"],
+  "exclude": ["src/stories"]
+}

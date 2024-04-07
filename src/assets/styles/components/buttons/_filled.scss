@@ -1,0 +1,10 @@
+@import '../../variables/colors';
+
+.button--filled {
+  background: $purple-gradient;
+
+  &:active,
+  &.active {
+    background: $green-gradient border-box;
+  }
+}

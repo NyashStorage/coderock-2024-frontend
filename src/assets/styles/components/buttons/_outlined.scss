@@ -1,0 +1,18 @@
+@import '../../variables/colors';
+
+.button--outlined {
+  @apply border-solid border-2 border-transparent;
+
+  color: $purple-color;
+  background:
+    linear-gradient(white, white) padding-box,
+    $purple-gradient border-box;
+
+  &:active,
+  &.active {
+    color: $green-color;
+    background:
+      linear-gradient(white, white) padding-box,
+      $green-gradient border-box;
+  }
+}

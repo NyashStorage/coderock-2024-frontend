@@ -1,0 +1,19 @@
+@import 'variables/_colors';
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+// Полоса прокрутки
+::-webkit-scrollbar {
+  width: calc(0.5vw + 0.5vh);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $purple-color;
+  border-radius: 20px;
+}

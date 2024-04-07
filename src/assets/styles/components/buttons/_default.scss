@@ -1,0 +1,10 @@
+@import '../../placeholders/transitions';
+
+button {
+  @extend h3, %default-transition;
+  @apply text-white uppercase px-5 py-4 rounded-3xl;
+
+  &:hover {
+    @extend %scale;
+  }
+}

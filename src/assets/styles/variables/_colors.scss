@@ -1,0 +1,22 @@
+// Палитра
+$dark-shade-900: #1f2041; // Dark Shade 100%
+$dark-shade-800: #575871; // Dark Shade 75%
+$dark-shade-700: #8f8fa0; // Dark Shade 50%
+$dark-shade-600: #c7c7cf; // Dark Shade 25%
+$dark-shade-500: #f4f4f5; // Dark Shade 5%
+
+$purple-color: #bc9cff; // Purple
+$purple-color-light: #8ba4f9;
+$purple-gradient: linear-gradient(
+  180deg,
+  $purple-color 0%,
+  $purple-color-light 100%
+);
+
+$green-color: #6fcf97; // Green
+$green-color-light: #66d2ea;
+$green-gradient: linear-gradient(
+  180deg,
+  $green-color 0%,
+  $green-color-light 100%
+);

@@ -1,0 +1,9 @@
+@import '../variables/transitions';
+
+%default-transition {
+  transition: all ease-in-out $transition-time;
+}
+
+%scale {
+  transform: scale(1.1);
+}
