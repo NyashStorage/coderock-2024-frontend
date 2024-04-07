@@ -9,10 +9,12 @@ export default {
 const Template: StoryFn<typeof Review> = (args) => <Review {...args} />;
 
 export const Default = Template.bind({});
-
 Default.args = {
-  createdAt: '1970/1/1',
-  rating: 5,
-  reviewAvatar: <p> Тут будет картинка</p>,
   authorName: 'Виталий Соляридзе',
+  // TODO: Поменять, когда будет реализован компонент аватарки.
+  authorAvatar: <>Аватар</>,
+  comment:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  rating: 4,
+  createdAt: Date.now() - 5 * 60,
 };

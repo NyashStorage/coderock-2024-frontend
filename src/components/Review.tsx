@@ -1,25 +1,42 @@
-import type { PropsWithChildren } from 'react';
+import type { JSX, PropsWithChildren } from 'react';
 import Block from './layout/Block';
+import { formatDistance } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
 export interface ReviewProps extends PropsWithChildren {
-  createdAt: string;
-  rating: number;
-  reviewAvatar: JSX.Element;
   authorName: string;
+  // TODO: Поменять, когда будет реализован компонент аватарки.
+  authorAvatar: JSX.Element;
+  comment: string;
+  rating: number;
+  createdAt: number;
 }
 
 export default function Review({
-  createdAt,
-  rating,
-  reviewAvatar,
   authorName,
+  authorAvatar,
+  comment,
+  rating,
+  createdAt,
 }: ReviewProps): JSX.Element {
   return (
-    <Block justify="center" gap="14">
-      <p>{createdAt}</p>
-      <p>{rating}</p>
-      <p>{reviewAvatar}</p>
-      <p>{authorName}</p>
+    <Block gap="gap-[10px]">
+      {authorAvatar}
+      <Block direction="column" gap="gap-[10px]">
+        <Block justify="between" alignItems="center">
+          <Block direction="column">
+            <h3>{authorName}</h3>
+            <span>
+              {formatDistance(createdAt, new Date(), {
+                addSuffix: true,
+                locale: ru,
+              })}
+            </span>
+          </Block>
+          {rating}
+        </Block>
+        <p>{comment}</p>
+      </Block>
     </Block>
   );
 }
