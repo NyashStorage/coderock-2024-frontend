@@ -1,0 +1,20 @@
+@import '../../variables/colors';
+.title {
+  color: $dark-shade-900;
+  text-transform: none;
+  border: $dark-shade-900 1px solid;
+  &:hover {
+    transform: scale(0);
+  }
+}
+.content {
+  height: 0;
+  border: $dark-shade-900 1px solid;
+  border-bottom-color: transparent;
+  border-top-width: 0;
+
+  &.open {
+    border-bottom-color: $dark-shade-900;
+    height: fit-content;
+  }
+}
