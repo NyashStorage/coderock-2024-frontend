@@ -10,8 +10,11 @@ const directions = new Map<Direction, string>(
   } as Record<Direction, string>) as Iterable<[Direction, string]>,
 );
 
-export function getDirection(direction: Direction): string | undefined {
-  return directions.get(direction);
+/**
+ * @returns TailwindCSS класс или пустая строка
+ */
+export function getDirection(direction?: Direction): string {
+  return getOrDefault(directions, direction);
 }
 
 // justify-content
@@ -26,10 +29,13 @@ const justifications = new Map<Justification, string>(
   } as Record<Justification, string>) as Iterable<[Justification, string]>,
 );
 
+/**
+ * @returns TailwindCSS класс или пустая строка
+ */
 export function getJustification(
-  justification: Justification,
+  justification?: Justification,
 ): string | undefined {
-  return justifications.get(justification);
+  return getOrDefault(justifications, justification);
 }
 
 // align-items
@@ -41,8 +47,19 @@ const itemsAlignments = new Map<ItemsAlignment, string>(
   } as Record<ItemsAlignment, string>) as Iterable<[ItemsAlignment, string]>,
 );
 
+/**
+ * @returns TailwindCSS класс или пустая строка
+ */
 export function getItemsAlignment(
-  itemsAlignment: ItemsAlignment,
+  itemsAlignment?: ItemsAlignment,
 ): string | undefined {
-  return itemsAlignments.get(itemsAlignment);
+  return getOrDefault(itemsAlignments, itemsAlignment);
+}
+
+// Утилиты
+/**
+ * Получает класс из словаря или возвращает пустую строку.
+ */
+function getOrDefault<T>(map: Map<T, string>, item: T | undefined): string {
+  return item ? map.get(item)! : '';
 }
