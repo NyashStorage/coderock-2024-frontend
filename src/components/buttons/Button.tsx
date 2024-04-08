@@ -4,20 +4,20 @@ import type { JSX, PropsWithChildren } from 'react';
 export interface ButtonProps extends PropsWithChildren {
   variant?: 'filled' | 'outlined' | 'empty';
   active?: boolean;
-  newClass?: string | undefined;
+  additionalClasses?: string;
   onClick?: () => void;
 }
 
 export default function Button({
   variant = 'filled',
   active = false,
-  newClass = undefined,
+  additionalClasses = '',
   onClick = (): void => {},
   children,
 }: ButtonProps): JSX.Element {
   return (
     <button
-      className={`button--${variant} ${active && 'active'} ${newClass && newClass}`}
+      className={`button--${variant} ${active && 'active'} ${additionalClasses}`}
       onClick={onClick}
     >
       {children}
