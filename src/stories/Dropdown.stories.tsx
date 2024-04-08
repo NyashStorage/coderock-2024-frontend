@@ -7,9 +7,10 @@ export default {
 } as Meta<typeof Dropdown>;
 
 const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown {...args} />;
+
 export const Default = Template.bind({});
 Default.args = {
-  title: 'title',
+  placeholder: ['title'],
   content: (
     <ul>
       <li>1</li>

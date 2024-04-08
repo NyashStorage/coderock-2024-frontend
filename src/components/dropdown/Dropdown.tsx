@@ -1,15 +1,17 @@
-import React, { JSX, PropsWithChildren, useState } from 'react';
+import type { JSX, PropsWithChildren } from 'react';
+import React, { useState } from 'react';
 import '../../assets/styles/components/dropdown/index.scss';
-import Typography from '../Typography';
-import arr from './arr.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 export interface DropdownProps extends PropsWithChildren {
-  title: string;
+  placeholder: string[];
   content: JSX.Element;
 }
 
-function Dropdown({ title, content }: DropdownProps): JSX.Element {
-  const [thisOpen, setThisOpen] = useState(false);
+function Dropdown({ placeholder, content }: DropdownProps): JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="relative inline-block text-left w-56">
       <button
@@ -17,13 +19,16 @@ function Dropdown({ title, content }: DropdownProps): JSX.Element {
         className="title flex w-full justify-between rounded-md bg-white px-3 py-2 shadow-sm"
         aria-expanded="true"
         aria-haspopup="true"
-        onClick={() => setThisOpen(!thisOpen)}
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <Typography variant="body">{title}</Typography>
-        <img src={arr} alt="" className={thisOpen ? 'rotate-180' : ''} />
+        <span>{placeholder}</span>
+        <FontAwesomeIcon
+          icon={faChevronDown}
+          className={isOpen ? 'rotate-180' : ''}
+        />
       </button>
       <div
-        className={`${thisOpen ? 'open ' : ''}content absolute inset-x-0 z-10 w-full px-3 overflow-hidden`}
+        className={`${isOpen ? 'open ' : ''}content absolute inset-x-0 z-10 w-full px-3 overflow-hidden`}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
