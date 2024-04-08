@@ -1,0 +1,64 @@
+@import '../../variables/colors';
+@import '../../placeholders/transitions';
+
+.input {
+  @extend %default-transition;
+  @apply px-[15px] border border-solid rounded outline-none;
+
+  color: $dark-shade-800;
+  background: $white-color;
+  border-color: $dark-shade-600;
+
+  &:not(&--disabled):hover {
+    @apply cursor-text;
+
+    border-color: $dark-shade-800;
+
+    & > svg {
+      color: $dark-shade-800;
+    }
+  }
+
+  // Icons
+  & > svg {
+    @extend %default-transition;
+    @apply text-[20px];
+
+    color: $dark-shade-600;
+  }
+
+  // Типы элемента.
+  &--focused {
+    border-color: $dark-shade-800;
+
+    & > svg {
+      color: $dark-shade-800;
+    }
+  }
+
+  &--disabled {
+    @apply cursor-no-drop;
+
+    border-color: $dark-shade-900;
+
+    & > svg {
+      color: $dark-shade-800;
+    }
+  }
+
+  // Input
+  & > input {
+    @extend %default-transition;
+    @apply w-full h-full py-[13px] bg-transparent outline-none;
+
+    color: $dark-shade-800;
+
+    &:disabled {
+      @apply cursor-no-drop;
+    }
+
+    &::placeholder {
+      color: $dark-shade-600;
+    }
+  }
+}

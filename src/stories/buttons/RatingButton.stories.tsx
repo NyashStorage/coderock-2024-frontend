@@ -1,5 +1,6 @@
 import '../../assets/styles/components/buttons/rating/index.scss';
 import type { Meta, StoryFn } from '@storybook/react';
+
 import RatingButton from '../../components/buttons/RatingButton';
 
 export default {

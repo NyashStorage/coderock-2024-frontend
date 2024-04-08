@@ -4,12 +4,14 @@ import type { JSX, PropsWithChildren } from 'react';
 export interface ButtonProps extends PropsWithChildren {
   variant?: 'filled' | 'outlined' | 'empty';
   active?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
 export default function Button({
   variant = 'filled',
   active = false,
+  disabled = false,
   onClick,
   children,
 }: ButtonProps): JSX.Element {
@@ -21,7 +23,7 @@ export default function Button({
   }
 
   return (
-    <button className={getStyles()} onClick={onClick}>
+    <button className={getStyles()} disabled={disabled} onClick={onClick}>
       {children}
     </button>
   );
