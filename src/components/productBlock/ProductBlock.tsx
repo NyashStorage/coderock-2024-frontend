@@ -19,12 +19,12 @@ function ProductBlock({
   numberOfReviews,
 }: ProductBlockProps): JSX.Element {
   return (
-    <div className="productBlock w-72 bg-white shadow-gray-400 shadow-sm rounded">
+    <div className="productBlock">
       <img src={img} alt="" className="w-full" />
-      <div className="p-5">
+      <div className="p-4">
         <div className="productBlock__name font-bold text-xl">{name}</div>
         <div className="productBlock__company">{company}</div>
-        <div className="productBlock__price">{price}&#8381;</div>
+        <div className="productBlock__price font-bold">{price}&#8381;</div>
         <hr className="my-4" />
         <div className="flex justify-between items-center">
           <RatingButton defaultRating={rating} disabled={true} />
