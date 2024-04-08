@@ -1,1 +1,26 @@
-@import 'default';
+@import '../../variables/colors';
+@import '../../placeholders/transitions';
+
+.dropdown {
+  @apply relative inline-block text-left w-56;
+
+  .placeholder {
+    @apply border items-center normal-case flex w-full justify-between rounded-md bg-white px-3 py-2 shadow-sm;
+    color: $dark-shade-900;
+    border-color: $dark-shade-900;
+
+    &:hover {
+      @extend %scale;
+    }
+  }
+}
+.content {
+  @apply h-0 border border-t-0 absolute inset-x-0 z-10 w-full px-3 overflow-hidden;
+  border-color: $dark-shade-900;
+  border-bottom-color: transparent;
+
+  &.open {
+    @apply h-fit;
+    border-bottom-color: $dark-shade-900;
+  }
+}

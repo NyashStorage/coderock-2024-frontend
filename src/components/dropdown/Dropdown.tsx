@@ -19,10 +19,10 @@ function Dropdown({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown relative inline-block text-left w-56">
+    <div className="dropdown">
       <Button
         variant={'empty'}
-        additionalClasses="title flex w-full justify-between rounded-md bg-white px-3 py-2 shadow-sm"
+        additionalClasses="placeholder"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{placeholder}</span>
@@ -32,7 +32,7 @@ function Dropdown({
         />
       </Button>
       <div
-        className={`${isOpen ? 'open ' : ''}content absolute inset-x-0 z-10 w-full px-3 overflow-hidden`}
+        className={`${isOpen ? 'open ' : ''}content`}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
