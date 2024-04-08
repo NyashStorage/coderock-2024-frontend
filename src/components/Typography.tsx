@@ -5,7 +5,8 @@ export interface TypographyProps extends PropsWithChildren {
 }
 
 /**
- * Компонент для тестирования текста в Storybook.
+ * Компонент исключительно для тестирования текста в Storybook,
+ * в других случаях необходимо использовать &lt;h1&gt; и т.п.
  */
 export default function Typography({
   variant = 'body',
