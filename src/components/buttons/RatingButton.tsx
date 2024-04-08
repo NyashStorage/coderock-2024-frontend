@@ -16,30 +16,28 @@ export default function RatingButton({
   defaultRating = 4,
   size = 'big',
   disabled = false,
-  onChange = (): void => {},
+  onChange,
 }: RatingButtonProps): JSX.Element {
   const [rating, setRating] = useState(defaultRating);
+
+  function getStarStyles(): string {
+    const styles = ['rating-button__star', `rating-button__star--${size}`];
+    if (!disabled) styles.push('cursor-pointer');
+
+    return styles.join(' ');
+  }
 
   function getStars(): JSX.Element {
     const stars: JSX.Element[] = [];
 
     for (let i = 1; i <= 5; i++) {
-      const isStarEmpty = i > rating;
-
       stars.push(
-        disabled ? (
-          <FontAwesomeIcon
-            className={`rating-button__star--${size}`}
-            icon={i > rating ? EmptyStarIcon : FilledStarIcon}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className={`rating-button__star--${size} cursor-pointer`}
-            onClick={() => changeRating(i)}
-            onMouseEnter={() => setRating(i)}
-            icon={isStarEmpty ? EmptyStarIcon : FilledStarIcon}
-          />
-        ),
+        <FontAwesomeIcon
+          className={getStarStyles()}
+          icon={i > rating ? EmptyStarIcon : FilledStarIcon}
+          onClick={!disabled ? (): void => changeRating(i) : undefined}
+          onMouseEnter={!disabled ? (): void => setRating(i) : undefined}
+        />,
       );
     }
 
@@ -48,7 +46,7 @@ export default function RatingButton({
 
   function changeRating(rating: number): void {
     setRating(rating);
-    onChange(rating);
+    onChange?.(rating);
   }
 
   return <Block>{getStars()}</Block>;
