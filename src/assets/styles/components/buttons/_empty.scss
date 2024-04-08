@@ -6,6 +6,6 @@
   color: $purple-color;
 
   &:hover {
-    @apply shadow-none;
+    box-shadow: none !important;
   }
 }
