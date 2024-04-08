@@ -2,5 +2,12 @@
 
 .rating-button__star {
   color: $purple-color;
+}
+
+.rating-button__star--big {
   font-size: 24px;
+}
+
+.rating-button__star--small {
+  font-size: 18px;
 }

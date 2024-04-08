@@ -16,6 +16,16 @@ const Template: StoryFn<typeof RatingButton> = (args) => (
 
 export const Default = Template.bind({});
 
+export const Big = Template.bind({});
+Big.args = {
+  size: 'big',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  size: 'small',
+};
+
 export const WithDefaultRating = Template.bind({});
 WithDefaultRating.args = {
   defaultRating: 3,

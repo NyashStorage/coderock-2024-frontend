@@ -30,15 +30,21 @@ export default function Block({
   direction,
   justify,
   alignItems,
-  gap = 'gap-0',
+  gap,
   element: Element = 'div',
   children,
 }: BlockProps): JSX.Element {
-  return (
-    <Element
-      className={`flex ${getDirection(direction)} ${getJustification(justify)} ${getItemsAlignment(alignItems)} ${gap}`}
-    >
-      {children}
-    </Element>
-  );
+  function getStyles(): string {
+    return [
+      'flex',
+      getDirection(direction),
+      getJustification(justify),
+      getItemsAlignment(alignItems),
+      gap,
+    ]
+      .filter(Boolean)
+      .join(' ');
+  }
+
+  return <Element className={getStyles()}>{children}</Element>;
 }
