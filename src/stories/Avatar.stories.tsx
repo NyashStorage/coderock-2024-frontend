@@ -1,4 +1,5 @@
 import type { StoryFn } from '@storybook/react';
+
 import Avatar from '../components/Avatar';
 
 export default {
