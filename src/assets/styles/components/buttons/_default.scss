@@ -11,5 +11,7 @@ button {
 
   &:disabled {
     @apply cursor-no-drop;
+
+    filter: blur(0.8px);
   }
 }
