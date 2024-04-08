@@ -4,11 +4,11 @@
   color: $purple-color;
 
   // Типы элемента.
-  &&--big {
+  &--big {
     @apply text-[24px];
   }
 
-  &&--small {
+  &--small {
     @apply text-[18px];
   }
 }
