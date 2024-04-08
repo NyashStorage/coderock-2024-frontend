@@ -1,2 +1,20 @@
-@import 'default';
+@import '../../variables/colors';
+@import '../../placeholders/transitions';
+
 @import 'rounded';
+
+.avatar {
+  @apply w-12 h-12 shadow-md;
+
+  background: $dark-shade-800;
+}
+
+.avatar--hoverable {
+  @extend %default-transition;
+  @apply cursor-pointer;
+
+  &:hover {
+    @extend %scale;
+    @apply shadow-lg;
+  }
+}
