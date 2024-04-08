@@ -1,5 +1,4 @@
 import type { JSX, PropsWithChildren } from 'react';
-import React from 'react';
 import Block from './layout/Block';
 import { formatDistance } from 'date-fns';
 import { ru } from 'date-fns/locale';
@@ -8,10 +7,7 @@ import Avatar from './Avatar';
 
 export interface ReviewProps extends PropsWithChildren {
   authorName: string;
-
-  // TODO: Поменять, когда будет реализован компонент аватарки.
   authorAvatar: string;
-
   comment: string;
   rating: number;
   createdAt: number;
@@ -26,7 +22,7 @@ export default function Review({
 }: ReviewProps): JSX.Element {
   return (
     <Block gap="gap-[10px]">
-      <Avatar rounded image={authorAvatar} />
+      <Avatar image={authorAvatar} rounded />
 
       <Block direction="column" gap="gap-[10px]">
         <Block justify="between" alignItems="center">
