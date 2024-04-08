@@ -54,3 +54,10 @@ WithIconsDisabled.args = {
   placeholder: 'Не вводи в меня ничего!',
   disabled: true,
 };
+
+export const Password = Template.bind({});
+Password.args = {
+  type: 'password',
+  placeholder: 'Расскажи мне все свои секреты~',
+  defaultValue: '123qwe',
+};

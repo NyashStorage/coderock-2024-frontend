@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import Block from '../layout/Block';
 
 export interface InputProps extends PropsWithChildren {
+  type?: 'text' | 'password';
   placeholder?: string;
   defaultValue?: string;
   disabled?: boolean;
@@ -14,6 +15,7 @@ export interface InputProps extends PropsWithChildren {
 }
 
 export default function Input({
+  type = 'text',
   placeholder,
   defaultValue,
   disabled = false,
@@ -56,6 +58,7 @@ export default function Input({
       {startIcon || <></>}
 
       <input
+        type={type}
         placeholder={placeholder}
         value={value}
         disabled={disabled}
