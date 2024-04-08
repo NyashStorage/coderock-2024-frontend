@@ -10,14 +10,18 @@ export interface ButtonProps extends PropsWithChildren {
 export default function Button({
   variant = 'filled',
   active = false,
-  onClick = (): void => {},
+  onClick,
   children,
 }: ButtonProps): JSX.Element {
+  function getStyles(): string {
+    const styles = ['button', `button--${variant}`];
+    if (active) styles.push('active');
+
+    return styles.join(' ');
+  }
+
   return (
-    <button
-      className={`button--${variant} ${active && 'active'}`}
-      onClick={onClick}
-    >
+    <button className={getStyles()} onClick={onClick}>
       {children}
     </button>
   );

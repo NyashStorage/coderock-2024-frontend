@@ -1,5 +1,11 @@
 @import '../../variables/colors';
 
 .button--empty {
+  @apply shadow-none;
+
   color: $purple-color;
+
+  &:hover {
+    @apply shadow-none;
+  }
 }
