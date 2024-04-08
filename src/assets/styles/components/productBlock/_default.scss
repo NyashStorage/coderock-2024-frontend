@@ -1,0 +1,10 @@
+@import '../../variables/colors';
+
+.productBlock {
+  color: $dark-shade-900;
+
+  &__company,
+  &__numberOfReviews {
+    color: $dark-shade-700;
+  }
+}
