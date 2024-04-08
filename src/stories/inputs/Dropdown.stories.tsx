@@ -1,5 +1,6 @@
-import Dropdown from '../components/dropdown/Dropdown';
 import type { Meta, StoryFn } from '@storybook/react';
+
+import Dropdown from '../../components/inputs/Dropdown';
 
 export default {
   title: 'Dropdown',
@@ -10,6 +11,6 @@ const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  placeholder: 'title',
-  content: ['1', '2', '3'],
+  placeholder: 'Выбери меня, семпай~',
+  content: ['Ужин?', 'Ванну?', 'Может быть... меня? ><'],
 };
