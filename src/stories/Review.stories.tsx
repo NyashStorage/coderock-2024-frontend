@@ -12,7 +12,8 @@ export const Default = Template.bind({});
 Default.args = {
   authorName: 'Виталий Соляридзе',
   // TODO: Поменять, когда будет реализован компонент аватарки.
-  authorAvatar: <>Аватар</>,
+  authorAvatar:
+    'https://celes.club/uploads/posts/2022-11/1667311553_15-celes-club-p-fon-papicha-vkontakte-15.jpg',
   comment:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   rating: 4,

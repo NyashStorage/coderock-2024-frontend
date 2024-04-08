@@ -22,10 +22,8 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
-
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
-
     "lint": "eslint coderock-2024-frontend --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
