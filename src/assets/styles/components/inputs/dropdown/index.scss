@@ -1,0 +1,39 @@
+@import '../../../variables/colors';
+@import '../../../placeholders/transitions';
+
+.dropdown {
+  @apply relative inline-block;
+
+  &__content {
+    @apply w-full border border-solid border-t-0 rounded absolute inset-x-0 shadow-md;
+
+    background: $white-color;
+
+    &--opened {
+      @apply h-fit;
+    }
+
+    &--closed {
+      @apply h-0 p-0 overflow-hidden;
+    }
+
+    &__item {
+      @extend %default-transition;
+      @apply px-[15px] py-[13px] border border-solid border-transparent;
+
+      &:hover {
+        @apply shadow-md;
+
+        border-color: $dark-shade-600;
+      }
+    }
+  }
+
+  & .input:not(.input--disabled) {
+    cursor: pointer !important;
+
+    & > input {
+      cursor: pointer !important;
+    }
+  }
+}

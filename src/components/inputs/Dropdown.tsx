@@ -9,18 +9,30 @@ import { faChevronDown as ArrowIcon } from '@fortawesome/free-solid-svg-icons';
 export interface DropdownProps extends PropsWithChildren {
   placeholder?: string;
   content: string[];
-  disable?: boolean;
+  disabled?: boolean;
+  className?: string;
   onChange?: (item: string, index: number) => void;
 }
 
 function Dropdown({
   placeholder,
   content,
-  disable = false,
+  disabled = false,
+  className,
   onChange,
 }: DropdownProps): JSX.Element {
   const [value, setValue] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
+  const [filter, setFilter] = useState('');
+
+  function getStyles(): string {
+    const styles = ['dropdown'];
+    if (disabled) styles.push('dropdown--disabled');
+    if (className) styles.push(...className.split(' '));
+
+    return styles.join(' ');
+  }
 
   function getItemStyles(index: number): string {
     const styles = ['dropdown__content__item'];
@@ -35,16 +47,16 @@ function Dropdown({
   }
 
   function clickHandler(): void {
-    if (disable) return;
+    if (disabled) return;
     setIsOpen((prev) => !prev);
   }
 
   return (
-    <Block className="dropdown" direction="column">
+    <Block className={getStyles()} direction="column">
       <Input
         className="dropdown__selector"
         placeholder={placeholder}
-        disabled
+        disabled={disabled}
         endIcon={
           <FontAwesomeIcon
             icon={ArrowIcon}
@@ -52,18 +64,25 @@ function Dropdown({
           />
         }
         onClick={clickHandler}
+        onChange={(value) => setFilter(value)}
       />
 
-      <div className="dropdown__content">
-        {content.map((item, index) => (
-          <div
-            className={getItemStyles(index)}
-            onClick={() => changeHandler(index)}
-          >
-            {item}
-          </div>
-        ))}
-      </div>
+      <Block
+        className={`dropdown__content dropdown__content--${isOpen ? 'opened' : 'closed'}`}
+        direction="column"
+      >
+        {content
+          .filter((item) => item.toLowerCase().includes(filter.toLowerCase()))
+          .map((item, index) => (
+            <div
+              key={`${item}-${index}-${Date.now()}`}
+              className={getItemStyles(index)}
+              onClick={() => changeHandler(index)}
+            >
+              {item}
+            </div>
+          ))}
+      </Block>
     </Block>
   );
 }
