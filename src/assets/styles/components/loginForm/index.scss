@@ -1,0 +1,13 @@
+@import '../../variables/colors';
+
+.login-form {
+  @apply bg-white max-w-96 shadow px-7 py-11 rounded;
+
+  &__title {
+    @apply text-2xl font-bold;
+  }
+
+  &__button-submit {
+    @apply mt-3.5;
+  }
+}
