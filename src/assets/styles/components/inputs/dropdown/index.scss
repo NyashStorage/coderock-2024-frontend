@@ -19,7 +19,7 @@
 
     &__item {
       @extend %default-transition;
-      @apply px-[15px] py-[13px] border border-solid border-transparent;
+      @apply px-[15px] py-[13px] border border-solid border-transparent cursor-pointer;
 
       &:hover {
         @apply shadow-md;
@@ -29,11 +29,11 @@
     }
   }
 
-  & .input:not(.input--disabled) {
+  & > .input:not(.input--disabled) {
     cursor: pointer !important;
 
     & > input {
-      cursor: pointer !important;
+      @apply cursor-pointer;
     }
   }
 }
