@@ -11,6 +11,7 @@ export interface InputProps extends PropsWithChildren {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   className?: string;
+  onClick?: () => void;
   onChange?: (value: string) => void;
 }
 
@@ -22,6 +23,7 @@ export default function Input({
   startIcon,
   endIcon,
   className,
+  onClick,
   onChange,
 }: InputProps): JSX.Element {
   const [value, setValue] = useState(defaultValue || '');
@@ -44,6 +46,7 @@ export default function Input({
   }
 
   function clickHandler(): void {
+    onClick?.();
     if (disabled) return;
     inputRef.current?.focus();
   }

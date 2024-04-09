@@ -3,14 +3,14 @@
 
 .input {
   @extend %default-transition;
-  @apply px-[15px] border border-solid rounded outline-none;
+  @apply px-[15px] border border-solid rounded outline-none shadow-md;
 
   color: $dark-shade-800;
   background: $white-color;
   border-color: $dark-shade-600;
 
   &:not(&--disabled):hover {
-    @apply cursor-text;
+    @apply cursor-text shadow-lg;
 
     border-color: $dark-shade-800;
 

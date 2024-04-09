@@ -5,6 +5,7 @@ export interface ButtonProps extends PropsWithChildren {
   variant?: 'filled' | 'outlined' | 'empty';
   active?: boolean;
   disabled?: boolean;
+  className?: string;
   onClick?: () => void;
 }
 
@@ -12,12 +13,14 @@ export default function Button({
   variant = 'filled',
   active = false,
   disabled = false,
+  className,
   onClick,
   children,
 }: ButtonProps): JSX.Element {
   function getStyles(): string {
     const styles = ['button', `button--${variant}`];
     if (active) styles.push('active');
+    if (className) styles.push(...className.split(' '));
 
     return styles.join(' ');
   }
