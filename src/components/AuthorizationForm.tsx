@@ -5,13 +5,13 @@ import Input from './inputs/Input';
 import PasswordInput from './inputs/PasswordInput';
 import Button from './buttons/Button';
 
-export interface LoginFormProps extends PropsWithChildren {
+export interface AuthorizationFormProps extends PropsWithChildren {
   defaultAssignment: 'login' | 'register';
 }
 
 function AuthorizationForm({
   defaultAssignment = 'register',
-}: LoginFormProps): JSX.Element {
+}: AuthorizationFormProps): JSX.Element {
   const [assignment, setAssignment] = useState(defaultAssignment);
 
   return (
