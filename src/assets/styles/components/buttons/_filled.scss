@@ -3,7 +3,7 @@
 .button--filled {
   background: $purple-gradient;
 
-  &:active,
+  &:not(:disabled):active,
   &.active {
     background: $green-gradient border-box;
   }

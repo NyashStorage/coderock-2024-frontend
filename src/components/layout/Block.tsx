@@ -15,29 +15,40 @@ export interface BlockProps extends PropsWithChildren {
   justify?: Justification;
   alignItems?: ItemsAlignment;
   gap?: string;
+  className?: string;
   element?: keyof JSX.IntrinsicElements;
+  onClick?: () => void;
 }
 
 /**
- * @param direction
- * @param justify
- * @param alignItems
  * @param gap - Класс TailwindCSS
  * @param element = Какой HTML элемент использовать в качестве базы блока
- * @param children
  */
 export default function Block({
   direction,
   justify,
   alignItems,
-  gap = 'gap-0',
+  gap,
+  className = '',
   element: Element = 'div',
+  onClick,
   children,
 }: BlockProps): JSX.Element {
+  function getStyles(): string {
+    return [
+      'flex',
+      getDirection(direction),
+      getJustification(justify),
+      getItemsAlignment(alignItems),
+      gap,
+      ...className.split(' '),
+    ]
+      .filter(Boolean)
+      .join(' ');
+  }
+
   return (
-    <Element
-      className={`flex ${getDirection(direction)} ${getJustification(justify)} ${getItemsAlignment(alignItems)} ${gap}`}
-    >
+    <Element className={getStyles()} onClick={onClick}>
       {children}
     </Element>
   );

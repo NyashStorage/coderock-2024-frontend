@@ -2,9 +2,16 @@
 
 button {
   @extend h3, %default-transition;
-  @apply text-white uppercase px-5 py-4 rounded-3xl;
+  @apply text-white uppercase px-5 py-4 rounded-3xl shadow-md;
 
-  &:hover {
+  &:not(:disabled):hover {
     @extend %scale;
+    @apply shadow-lg;
+  }
+
+  &:disabled {
+    @apply cursor-no-drop;
+
+    filter: blur(0.8px);
   }
 }
