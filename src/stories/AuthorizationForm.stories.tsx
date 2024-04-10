@@ -1,13 +1,15 @@
 import type { StoryFn } from '@storybook/react';
 
-import LoginForm from '../components/LoginForm';
+import AuthorizationForm from '../components/AuthorizationForm';
 
 export default {
   title: 'LoginForm',
-  component: LoginForm,
+  component: AuthorizationForm,
 };
 
-const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: StoryFn<typeof AuthorizationForm> = (args) => (
+  <AuthorizationForm {...args} />
+);
 export const Register = Template.bind({});
 
 export const Login = Template.bind({});

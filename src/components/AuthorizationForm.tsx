@@ -1,5 +1,5 @@
 import React, { JSX, PropsWithChildren, useState } from 'react';
-import '../assets/styles/components/loginForm/index.scss';
+import '../assets/styles/components/authorizationForm/index.scss';
 import Block from './layout/Block';
 import Input from './inputs/Input';
 import PasswordInput from './inputs/PasswordInput';
@@ -9,16 +9,16 @@ export interface LoginFormProps extends PropsWithChildren {
   defaultAssignment: 'login' | 'register';
 }
 
-function LoginForm({
+function AuthorizationForm({
   defaultAssignment = 'register',
 }: LoginFormProps): JSX.Element {
   const [assignment, setAssignment] = useState(defaultAssignment);
 
   return (
     <Block direction="column" gap="gap-[20px]" className="login-form">
-      <div className="login-form__title">
+      <h1 className="login-form__title">
         {assignment == 'register' ? 'Регистрация аккаунта' : 'Войти'}
-      </div>
+      </h1>
       <form
         action=""
         name={assignment}
@@ -33,10 +33,13 @@ function LoginForm({
           </>
         )}
         <Input placeholder="Email" />
-        <PasswordInput placeholder="Пароль" />
-        <Button className="login-form__button-submit">
-          {assignment == 'register' ? 'зарегистрироваться' : 'войти'}
-        </Button>
+
+        <Block direction="column" gap="gap-[24px]">
+          <PasswordInput placeholder="Пароль" />
+          <Button>
+            {assignment == 'register' ? 'зарегистрироваться' : 'войти'}
+          </Button>
+        </Block>
       </form>
       <Block justify="between" alignItems="center">
         <span>
@@ -55,4 +58,4 @@ function LoginForm({
   );
 }
 
-export default LoginForm;
+export default AuthorizationForm;
