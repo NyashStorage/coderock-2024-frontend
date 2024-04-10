@@ -15,8 +15,8 @@ function AuthorizationForm({
   const [assignment, setAssignment] = useState(defaultAssignment);
 
   return (
-    <Block direction="column" gap="gap-[20px]" className="login-form">
-      <h1 className="login-form__title">
+    <Block direction="column" gap="gap-[20px]" className="authorization-form">
+      <h1 className="authorization-form__title">
         {assignment == 'register' ? 'Регистрация аккаунта' : 'Войти'}
       </h1>
       <form
