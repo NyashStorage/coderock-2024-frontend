@@ -27,20 +27,24 @@ function AuthorizationForm({
       >
         {assignment == 'register' && (
           <>
-            <Input placeholder="Имя" />
-            <Input placeholder="Фамилия" />
-            <Input placeholder="Название компании ( можно не указывать )" />
+            <Input placeholder="Имя" name="userName" />
+            <Input placeholder="Фамилия" name="surname" />
+            <Input
+              placeholder="Название компании ( можно не указывать )"
+              name="companyName"
+            />
           </>
         )}
-        <Input placeholder="Email" />
+        <Input placeholder="Email" name="email" />
 
         <Block direction="column" gap="gap-[24px]">
-          <PasswordInput placeholder="Пароль" />
+          <PasswordInput placeholder="Пароль" name="password" />
           <Button>
             {assignment == 'register' ? 'зарегистрироваться' : 'войти'}
           </Button>
         </Block>
       </form>
+
       <Block justify="between" alignItems="center">
         <span>
           {assignment == 'register' ? 'Уже есть аккаунт?' : 'Нет аккаунта?'}

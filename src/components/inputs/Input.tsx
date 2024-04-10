@@ -5,6 +5,7 @@ import Block from '../layout/Block';
 
 export interface InputProps extends PropsWithChildren {
   type?: 'text' | 'password';
+  name?: string;
   placeholder?: string;
   defaultValue?: string;
   disabled?: boolean;
@@ -17,6 +18,7 @@ export interface InputProps extends PropsWithChildren {
 
 export default function Input({
   type = 'text',
+  name = '',
   placeholder,
   defaultValue,
   disabled = false,
@@ -62,6 +64,7 @@ export default function Input({
 
       <input
         type={type}
+        name={name}
         placeholder={placeholder}
         value={value}
         disabled={disabled}
