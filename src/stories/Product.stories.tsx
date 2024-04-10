@@ -1,14 +1,12 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import ProductBlock from '../components/productBlock/ProductBlock';
+import Product from '../components/productBlock/Product';
 
 export default {
   title: 'ProductBlock',
-  component: ProductBlock,
-} as Meta<typeof ProductBlock>;
+  component: Product,
+} as Meta<typeof Product>;
 
-const Template: StoryFn<typeof ProductBlock> = (args) => (
-  <ProductBlock {...args} />
-);
+const Template: StoryFn<typeof Product> = (args) => <Product {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
