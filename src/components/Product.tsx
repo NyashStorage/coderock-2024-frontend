@@ -20,6 +20,10 @@ function Product({
   rating,
   numberOfReviews,
 }: ProductProps): JSX.Element {
+  function formatPrice(): string {
+    return (price / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
   return (
     <Block direction="column" className="product">
       <img src={img} alt="" className="w-full" />
@@ -27,7 +31,7 @@ function Product({
       <div className="p-4">
         <div className="product__name">{name}</div>
         <div className="product__company">{company}</div>
-        <div className="product__price">{price}&#8381;</div>
+        <div className="product__price">{formatPrice()}&#8381;</div>
 
         <hr className="my-4" />
 
