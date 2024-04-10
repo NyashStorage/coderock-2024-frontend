@@ -39,7 +39,11 @@ function AuthorizationForm({
 
         <Block direction="column" gap="gap-[24px]">
           <PasswordInput placeholder="Пароль" name="password" />
-          <Button>
+          <Button
+            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+              e.preventDefault()
+            }
+          >
             {assignment == 'register' ? 'зарегистрироваться' : 'войти'}
           </Button>
         </Block>

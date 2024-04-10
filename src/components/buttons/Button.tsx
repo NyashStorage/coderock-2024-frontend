@@ -1,12 +1,13 @@
 import '../../assets/styles/components/buttons/index.scss';
 import type { JSX, PropsWithChildren } from 'react';
+import React from 'react';
 
 export interface ButtonProps extends PropsWithChildren {
   variant?: 'filled' | 'outlined' | 'empty';
   active?: boolean;
   disabled?: boolean;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export default function Button({
