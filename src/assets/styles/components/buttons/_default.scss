@@ -2,7 +2,7 @@
 
 button {
   @extend h3, %default-transition;
-  @apply text-white uppercase px-5 py-4 rounded-3xl shadow-md;
+  @apply text-white uppercase px-5 py-4 rounded-[22px] shadow-md;
 
   &:not(:disabled):hover {
     @extend %scale;
