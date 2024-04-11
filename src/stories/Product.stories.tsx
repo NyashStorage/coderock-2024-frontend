@@ -1,6 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import Product from '../components/Product';
 import { withRouter } from '../../.storybook/preview';
+
+import Product from '../components/Product';
 
 export default {
   title: 'Product',

@@ -18,7 +18,7 @@ export interface InputProps extends PropsWithChildren {
 
 export default function Input({
   type = 'text',
-  name = '',
+  name,
   placeholder,
   defaultValue,
   disabled = false,
