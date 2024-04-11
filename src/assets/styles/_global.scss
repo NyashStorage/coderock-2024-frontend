@@ -1,11 +1,7 @@
 @import 'variables/_colors';
 
 body {
-  width: 100vw;
-  min-height: 100vh;
-
-  box-sizing: border-box;
-  overflow-x: hidden;
+  @apply w-screen h-screen box-border overflow-x-hidden;
 }
 
 // Полоса прокрутки
@@ -14,6 +10,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
+  @apply rounded-[20px];
+
   background: $purple-color;
-  border-radius: 20px;
 }
