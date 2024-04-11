@@ -1,19 +1,22 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import Product from '../components/Product';
+import { withRouter } from '../../.storybook/preview';
 
 export default {
-  title: 'ProductBlock',
+  title: 'Product',
   component: Product,
+  decorators: [withRouter],
 } as Meta<typeof Product>;
 
 const Template: StoryFn<typeof Product> = (args) => <Product {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  img: 'https://i.pinimg.com/736x/90/bf/6b/90bf6be4825e15296032e93a0d0736eb.jpg',
-  title: 'Супер автомат',
-  company: 'weapons of the future',
-  price: 100000,
-  rating: 3,
-  reviews: 65,
+  image:
+    'https://i.pinimg.com/originals/41/6e/af/416eafd9188736ddcb4cb2a4016ae746.jpg',
+  title: 'Усиленный автомат',
+  company: 'Laboratory PZ:30',
+  price: 2058000,
+  rating: 4,
+  reviews: 77,
 };

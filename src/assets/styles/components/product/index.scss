@@ -1,21 +1,35 @@
 @import '../../variables/colors';
+@import '../../placeholders/transitions';
 
 .product {
-  @apply w-72 bg-white shadow-gray-400 shadow-sm rounded;
+  @extend %default-transition;
+  @apply w-[250px] h-[450px] shadow-md rounded;
 
-  color: $dark-shade-900;
-
-  &__name {
-    @apply font-bold text-xl;
+  &:not(&--disabled):hover {
+    @extend %scale;
+    @apply cursor-pointer;
   }
 
-  &__company,
-  &__numberOfReviews,
-  &__price {
-    color: $dark-shade-700;
+  &__image {
+    @apply h-[330px] rounded-t bg-cover bg-center bg-no-repeat;
   }
 
-  &__price {
-    @apply font-bold;
+  &__description {
+    @apply p-4 shadow-md;
+
+    & * {
+      @apply leading-[18px] overflow-hidden overflow-ellipsis whitespace-nowrap;
+    }
+
+    &__company,
+    &__reviews {
+      color: $dark-shade-700;
+    }
+
+    &__price {
+      @apply font-bold;
+
+      color: $purple-color;
+    }
   }
 }
