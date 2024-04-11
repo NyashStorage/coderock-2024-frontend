@@ -8,4 +8,8 @@
   & h3 {
     @apply uppercase;
   }
+
+  & .input {
+    @apply shadow-none;
+  }
 }
