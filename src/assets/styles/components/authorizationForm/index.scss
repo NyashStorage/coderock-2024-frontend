@@ -1,9 +1,0 @@
-@import '../../variables/colors';
-
-.authorization-form {
-  @apply bg-white max-w-96 shadow px-7 py-11 rounded;
-
-  &__title {
-    @apply text-2xl font-bold;
-  }
-}

@@ -1,0 +1,11 @@
+@import '../../variables/colors';
+
+.authorization-form {
+  @apply w-[380px] py-[38px];
+
+  background: $white-color;
+
+  & h3 {
+    @apply uppercase;
+  }
+}

@@ -1,68 +1,75 @@
-import React, { JSX, PropsWithChildren, useState } from 'react';
-import '../assets/styles/components/authorizationForm/index.scss';
+import '../assets/styles/components/authorization-form/index.scss';
+import type { JSX, PropsWithChildren } from 'react';
+import { useState } from 'react';
 import Block from './layout/Block';
 import Input from './inputs/Input';
 import PasswordInput from './inputs/PasswordInput';
 import Button from './buttons/Button';
+import FormContainer from './FormContainer';
+import Card from './Card';
 
 export interface AuthorizationFormProps extends PropsWithChildren {
   defaultAssignment: 'login' | 'register';
 }
 
 function AuthorizationForm({
-  defaultAssignment = 'register',
+  defaultAssignment,
 }: AuthorizationFormProps): JSX.Element {
   const [assignment, setAssignment] = useState(defaultAssignment);
 
+  function onSubmit(data: Record<string, any>): void {
+    // TODO: Закончить, когда будет готова авторизация.
+    console.log(data);
+  }
+
   return (
-    <Block direction="column" gap="gap-[20px]" className="authorization-form">
-      <h1 className="authorization-form__title">
-        {assignment == 'register' ? 'Регистрация аккаунта' : 'Войти'}
-      </h1>
-      <form
-        action=""
-        name={assignment}
-        method="post"
-        className="flex flex-col gap-2.5"
-      >
-        {assignment == 'register' && (
+    <Card className="authorization-form" direction="column" gap="gap-[20px]">
+      <h1>{assignment === 'register' ? 'Регистрация аккаунта' : 'Войти'}</h1>
+
+      <FormContainer className="flex flex-col gap-[22px]" onSuccess={onSubmit}>
+        <Block direction="column" gap="gap-[8px]">
+          <h3>Данные для входа</h3>
+          <Input placeholder="Email" name="email" />
+          <PasswordInput placeholder="Пароль" name="password" />
+        </Block>
+
+        {assignment === 'register' && (
           <>
-            <Input placeholder="Имя" name="userName" />
-            <Input placeholder="Фамилия" name="surname" />
-            <Input
-              placeholder="Название компании ( можно не указывать )"
-              name="companyName"
-            />
+            <Block direction="column" gap="gap-[8px]">
+              <h3>Личные данные</h3>
+              <Input placeholder="Имя" name="firstName" />
+              <Input placeholder="Фамилия" name="lastName" />
+            </Block>
+
+            <Block direction="column" gap="gap-[8px]">
+              <Block direction="column">
+                <h3>Данные о компании</h3>
+                <small>* Не обязательны к заполнению.</small>
+              </Block>
+
+              <Input placeholder="Название компании" name="company" />
+            </Block>
           </>
         )}
-        <Input placeholder="Email" name="email" />
 
-        <Block direction="column" gap="gap-[24px]">
-          <PasswordInput placeholder="Пароль" name="password" />
-          <Button
-            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-              e.preventDefault()
-            }
-          >
-            {assignment == 'register' ? 'зарегистрироваться' : 'войти'}
-          </Button>
-        </Block>
-      </form>
+        <Button>
+          {assignment == 'register' ? 'зарегистрироваться' : 'войти'}
+        </Button>
+      </FormContainer>
 
       <Block justify="between" alignItems="center">
-        <span>
-          {assignment == 'register' ? 'Уже есть аккаунт?' : 'Нет аккаунта?'}
-        </span>
+        {assignment === 'register' ? 'Уже есть аккаунт?' : 'Нет аккаунта?'}
+
         <Button
           variant="outlined"
           onClick={() =>
-            setAssignment(assignment == 'register' ? 'login' : 'register')
+            setAssignment(assignment === 'register' ? 'login' : 'register')
           }
         >
-          {assignment == 'register' ? 'войти' : 'создать'}
+          {assignment === 'register' ? 'войти' : 'создать'}
         </Button>
       </Block>
-    </Block>
+    </Card>
   );
 }
 
