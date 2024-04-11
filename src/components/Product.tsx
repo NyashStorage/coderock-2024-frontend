@@ -5,20 +5,24 @@ import Block from './layout/Block';
 
 export interface ProductProps extends PropsWithChildren {
   img: string;
-  name: string;
+  title: string;
   company: string;
   price: number;
   rating: number;
-  numberOfReviews: number;
+  reviews: number;
+  id: number;
+  url: string;
 }
 
 function Product({
   img,
-  name,
+  title,
   company,
   price,
   rating,
-  numberOfReviews,
+  reviews,
+  id,
+  url,
 }: ProductProps): JSX.Element {
   function formatPrice(): string {
     return (price / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -29,7 +33,7 @@ function Product({
       <img src={img} alt="" className="w-full" />
 
       <div className="p-4">
-        <div className="product__name">{name}</div>
+        <div className="product__name">{title}</div>
         <div className="product__company">{company}</div>
         <div className="product__price">{formatPrice()}&#8381;</div>
 
@@ -38,7 +42,7 @@ function Product({
         <Block justify="between" alignItems="center">
           <RatingButton defaultRating={rating} disabled={true} />
           <div className="text-sm product__numberOfReviews">
-            <span className="font-bold">{numberOfReviews} </span>
+            <span className="font-bold">{reviews} </span>
             отзывов
           </div>
         </Block>
