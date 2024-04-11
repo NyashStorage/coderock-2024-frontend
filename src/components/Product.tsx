@@ -29,7 +29,11 @@ function Product({
   }
 
   return (
-    <Block direction="column" className="product">
+    <Block
+      direction="column"
+      className="product"
+      onClick={() => (window.location.href = url.replace('%id%', `${id}`))}
+    >
       <img src={img} alt="" className="w-full" />
 
       <div className="p-4">
