@@ -1,0 +1,18 @@
+@import '../../variables/colors';
+@import '../../placeholders/transitions';
+
+.link {
+  @extend %default-transition;
+
+  color: $dark-shade-700;
+
+  &:hover {
+    @extend %scale;
+  }
+
+  &--active {
+    @apply font-bold;
+
+    color: $dark-shade-800;
+  }
+}

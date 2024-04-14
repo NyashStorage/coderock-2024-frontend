@@ -1,6 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 
-import AuthorizationForm from '../components/AuthorizationForm';
+import AuthorizationForm from '../components/forms/AuthorizationForm';
 
 export default {
   title: 'AuthorizationForm',

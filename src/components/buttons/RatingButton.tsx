@@ -4,6 +4,7 @@ import Block from '../layout/Block';
 import { faStar as EmptyStarIcon } from '@fortawesome/free-regular-svg-icons';
 import { faStar as FilledStarIcon } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { orUndefined } from '../../helpers/сondition.helpers';
 
 export interface RatingButtonProps {
   defaultRating?: number;
@@ -35,8 +36,8 @@ export default function RatingButton({
         <FontAwesomeIcon
           className={getStarStyles()}
           icon={i > rating ? EmptyStarIcon : FilledStarIcon}
-          onClick={!disabled ? (): void => changeRating(i) : undefined}
-          onMouseEnter={!disabled ? (): void => setRating(i) : undefined}
+          onClick={orUndefined(!disabled, (): void => changeRating(i))}
+          onMouseEnter={orUndefined(!disabled, (): void => setRating(i))}
         />,
       );
     }

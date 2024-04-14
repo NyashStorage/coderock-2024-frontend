@@ -1,0 +1,9 @@
+.page--company {
+  @apply container mx-auto;
+
+  margin-top: calc(1vw + 1vh);
+
+  &__navigation {
+    @apply w-[200px] h-fit;
+  }
+}

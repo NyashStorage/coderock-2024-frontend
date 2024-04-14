@@ -4,6 +4,10 @@ body {
   @apply w-screen h-screen box-border overflow-x-hidden;
 }
 
+main {
+  @apply h-full flex flex-col;
+}
+
 // Полоса прокрутки
 ::-webkit-scrollbar {
   width: calc(0.5vw + 0.5vh);

@@ -1,0 +1,11 @@
+@import '../../variables/colors';
+
+.modal {
+  @apply w-screen h-screen flex justify-center items-center fixed top-0 left-0;
+
+  background: rgba($white-color, 0.75);
+
+  &--closed {
+    visibility: hidden;
+  }
+}

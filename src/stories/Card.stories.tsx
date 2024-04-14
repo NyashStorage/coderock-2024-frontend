@@ -1,6 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 
-import Card from '../components/Card';
+import Card from '../components/layout/Card';
 
 export default {
   title: 'Layouts/Card',

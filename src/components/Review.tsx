@@ -24,7 +24,7 @@ export default function Review({
     <Block gap="gap-[10px]">
       <Avatar image={authorAvatar} rounded />
 
-      <Block direction="column" gap="gap-[10px]">
+      <Block className="w-[75%]" direction="column" gap="gap-[10px]">
         <Block justify="between" alignItems="center">
           <Block direction="column">
             <span className="font-bold">{authorName}</span>

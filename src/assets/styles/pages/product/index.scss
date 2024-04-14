@@ -1,0 +1,13 @@
+@import '../../variables/colors';
+
+.page--product {
+  @apply container mx-auto;
+
+  margin-top: calc(1vw + 1vh);
+
+  &__price {
+    @apply font-bold;
+
+    color: $purple-color;
+  }
+}

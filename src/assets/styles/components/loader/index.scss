@@ -1,0 +1,33 @@
+.loader {
+  & > svg {
+    @apply h-1/2 w-fit;
+
+    animation:
+      pop-up 1s,
+      shake 2s 1s infinite;
+  }
+}
+
+@keyframes pop-up {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: rotate(10deg) scale(1);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}

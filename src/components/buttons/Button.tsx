@@ -1,12 +1,13 @@
 import '../../assets/styles/components/buttons/index.scss';
 import type { JSX, PropsWithChildren } from 'react';
+import React from 'react';
 
 export interface ButtonProps extends PropsWithChildren {
   variant?: 'filled' | 'outlined' | 'empty';
   active?: boolean;
   disabled?: boolean;
   className?: string;
-  onClick?: () => void;
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export default function Button({
@@ -26,7 +27,11 @@ export default function Button({
   }
 
   return (
-    <button className={getStyles()} disabled={disabled} onClick={onClick}>
+    <button
+      className={getStyles()}
+      disabled={disabled}
+      onClick={(event) => onClick?.(event)}
+    >
       {children}
     </button>
   );

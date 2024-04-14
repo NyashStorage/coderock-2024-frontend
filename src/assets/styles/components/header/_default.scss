@@ -1,0 +1,7 @@
+@import '../../variables/colors';
+
+header {
+  @apply shadow-md;
+
+  background: $white-color;
+}

@@ -1,0 +1,13 @@
+.header {
+  &__content {
+    @apply p-4 container m-auto;
+
+    & > .logo {
+      @apply h-[44px] w-fit;
+    }
+
+    & > nav {
+      @apply flex gap-[24px];
+    }
+  }
+}

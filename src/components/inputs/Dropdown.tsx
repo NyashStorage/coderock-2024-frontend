@@ -5,26 +5,31 @@ import Input from './Input';
 import Block from '../layout/Block';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown as ArrowIcon } from '@fortawesome/free-solid-svg-icons';
+import { orUndefined } from '../../helpers/сondition.helpers';
 
 export interface DropdownProps extends PropsWithChildren {
+  name?: string;
   placeholder?: string;
+  defaultValue?: string;
   content: string[];
   disabled?: boolean;
   className?: string;
-  onChange?: (item: string, index: number) => void;
+  onChange?: (item: string) => void;
 }
 
-function Dropdown({
+export default function Dropdown({
+  name,
   placeholder,
+  defaultValue,
   content,
   disabled = false,
   className,
   onChange,
 }: DropdownProps): JSX.Element {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(defaultValue || '');
   const [isOpen, setIsOpen] = useState(false);
 
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState(defaultValue || '');
 
   function getStyles(): string {
     const styles = ['dropdown'];
@@ -34,36 +39,43 @@ function Dropdown({
     return styles.join(' ');
   }
 
-  function getItemStyles(index: number): string {
+  function getItemStyles(item: string): string {
     const styles = ['dropdown__content__item'];
-    if (value === index) styles.push('active');
+    if (value === item) styles.push('active');
 
     return styles.join(' ');
   }
 
-  function changeHandler(index: number): void {
-    setValue(index);
-    onChange?.(content[index], index);
+  function changeHandler(item: string): void {
+    setValue(item);
+    setIsOpen(false);
+    setFilter(item);
+
+    onChange?.(item);
   }
 
   function clickHandler(): void {
     if (disabled) return;
+
     setIsOpen((prev) => !prev);
+    if (!isOpen) setFilter('');
   }
 
   return (
     <Block className={getStyles()} direction="column">
       <Input
         className="dropdown__selector"
+        name={name}
         placeholder={placeholder}
         disabled={disabled}
         endIcon={
           <FontAwesomeIcon
             icon={ArrowIcon}
-            className={isOpen ? 'rotate-180' : undefined}
+            className={orUndefined(isOpen, 'rotate-180')}
           />
         }
         onClick={clickHandler}
+        value={filter}
         onChange={(value) => setFilter(value)}
       />
 
@@ -73,11 +85,11 @@ function Dropdown({
       >
         {content
           .filter((item) => item.toLowerCase().includes(filter.toLowerCase()))
-          .map((item, index) => (
+          .map((item) => (
             <div
-              key={`${item}-${index}-${Date.now()}`}
-              className={getItemStyles(index)}
-              onClick={() => changeHandler(index)}
+              key={`${item}-${Date.now()}`}
+              className={getItemStyles(item)}
+              onClick={() => changeHandler(item)}
             >
               {item}
             </div>
@@ -86,5 +98,3 @@ function Dropdown({
     </Block>
   );
 }
-
-export default Dropdown;

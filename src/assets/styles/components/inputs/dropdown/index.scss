@@ -5,16 +5,16 @@
   @apply relative inline-block;
 
   &__content {
-    @apply w-full absolute inset-x-0 border border-solid rounded border-t-0 shadow-md;
+    @apply w-full absolute inset-x-0 z-10 border border-solid rounded border-t-0 shadow-md;
 
     background: $white-color;
 
     &--opened {
-      @apply h-fit;
+      @apply max-h-[300px] overflow-y-scroll;
     }
 
     &--closed {
-      @apply h-0 overflow-hidden;
+      @apply hidden;
     }
 
     &__item {

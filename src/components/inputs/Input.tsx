@@ -4,10 +4,12 @@ import { useRef, useState } from 'react';
 import Block from '../layout/Block';
 
 export interface InputProps extends PropsWithChildren {
-  type?: 'text' | 'password';
+  type?: 'text' | 'number' | 'password';
   name?: string;
   placeholder?: string;
   defaultValue?: string;
+  value?: string;
+  required?: boolean;
   disabled?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
@@ -21,14 +23,16 @@ export default function Input({
   name,
   placeholder,
   defaultValue,
-  disabled = false,
+  value,
+  required,
+  disabled,
   startIcon,
   endIcon,
   className,
   onClick,
   onChange,
 }: InputProps): JSX.Element {
-  const [value, setValue] = useState(defaultValue || '');
+  const [localValue, setValue] = useState(value || defaultValue || '');
 
   const [isInputFocused, setInputFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -66,7 +70,8 @@ export default function Input({
         type={type}
         name={name}
         placeholder={placeholder}
-        value={value}
+        value={value || localValue}
+        required={required}
         disabled={disabled}
         onChange={changeHandler}
         onFocus={() => setInputFocused(true)}

@@ -1,12 +1,13 @@
-import type { JSX, PropsWithChildren } from 'react';
 import '../assets/styles/components/product/index.scss';
+import '../assets/styles/components/buttons/rating/index.scss';
+import type { JSX, PropsWithChildren } from 'react';
 import Block from './layout/Block';
 import RatingButton from './buttons/RatingButton';
 import { useNavigate } from 'react-router-dom';
+import { orUndefined } from '../helpers/сondition.helpers';
 
 export interface ProductProps extends PropsWithChildren {
   id: number;
-  url: string;
   image: string;
   title: string;
   company: string;
@@ -16,9 +17,8 @@ export interface ProductProps extends PropsWithChildren {
   disabled?: boolean;
 }
 
-function Product({
+export default function Product({
   id,
-  url,
   image,
   title,
   company,
@@ -37,18 +37,18 @@ function Product({
   }
 
   function openProduct(): void {
-    navigate(url.replace('%id%', id.toString()));
+    navigate(`products/${id}`);
   }
 
   return (
     <Block
       className={getStyles()}
       direction="column"
-      onClick={!disabled ? openProduct : undefined}
+      onClick={orUndefined(!disabled, openProduct)}
     >
       <div
         className="product__image"
-        style={{ backgroundImage: `url("${image}")` }}
+        style={{ backgroundImage: `url("data:image/jpg;base64,${image}")` }}
       />
 
       <Block
@@ -80,5 +80,3 @@ function Product({
     </Block>
   );
 }
-
-export default Product;
