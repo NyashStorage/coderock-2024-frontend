@@ -1,0 +1,26 @@
+@import '../../../variables/colors';
+
+.checkbox {
+  @apply cursor-pointer;
+
+  color: $dark-shade-700;
+
+  &--disabled {
+    @apply cursor-no-drop opacity-50;
+  }
+
+  input {
+    @apply hidden;
+  }
+
+  &__check {
+    @apply border w-5 h-5;
+
+    border-color: $dark-shade-700;
+    color: $purple-color;
+
+    input:checked + & {
+      border-color: $purple-color;
+    }
+  }
+}
