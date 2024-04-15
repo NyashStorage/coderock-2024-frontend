@@ -18,12 +18,9 @@ export interface BlockProps extends PropsWithChildren {
   className?: string;
   element?: keyof JSX.IntrinsicElements;
   onClick?: () => void;
+  htmlFor?: string;
 }
 
-/**
- * @param gap - Класс TailwindCSS
- * @param element = Какой HTML элемент использовать в качестве базы блока
- */
 export default function Block({
   direction,
   justify,
@@ -32,6 +29,7 @@ export default function Block({
   className = '',
   element: Element = 'div',
   onClick,
+  htmlFor,
   children,
 }: BlockProps): JSX.Element {
   function getStyles(): string {
@@ -47,8 +45,10 @@ export default function Block({
       .join(' ');
   }
 
+  const additionalProps = Element === 'label' ? { htmlFor: htmlFor } : {};
+
   return (
-    <Element className={getStyles()} onClick={onClick}>
+    <Element className={getStyles()} onClick={onClick} {...additionalProps}>
       {children}
     </Element>
   );
