@@ -7,6 +7,7 @@ export default function App(): JSX.Element {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<h1>home</h1>} />
+        <Route path="products" element={<h1>products</h1>} />
       </Route>
     </Routes>
   );

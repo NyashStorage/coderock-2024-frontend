@@ -1,0 +1,14 @@
+@import '../../variables/colors';
+.header {
+  @apply shadow-sm;
+
+  background-color: $white-color;
+
+  &__content {
+    @apply container mx-auto p-5;
+  }
+
+  &__logo {
+    @apply h-11 w-fit;
+  }
+}
