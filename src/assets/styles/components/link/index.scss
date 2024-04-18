@@ -2,15 +2,17 @@
 @import '../../placeholders/transitions';
 
 .link {
+  @extend %default-transition;
+
   color: $dark-shade-700;
 
   &--active {
-    @apply font-bold;
+    @apply font-bold cursor-default;
 
     color: $dark-shade-900;
   }
 
-  &:hover {
+  &:not(&--active):hover {
     @extend %scale;
 
     color: $dark-shade-900;
