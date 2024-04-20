@@ -1,11 +1,15 @@
 import type { JSX } from 'react';
-import type { Preview, StoryContext } from '@storybook/react';
+import { Preview, Story, StoryContext, StoryFn } from '@storybook/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import rootReducer from '../src/stores/rootReducer';
 import { createStore } from 'redux';
 
 const store = createStore(rootReducer);
+
+/**
+  @param context.parameters.customInitialState - для изменения начального состояния store
+ */
 
 export const withReduxProvider = (
   Story: JSX.ElementType,
@@ -30,4 +34,7 @@ export const withReduxProvider = (
   );
 };
 
-export const parameters: Preview = {};
+const preview: Preview = {
+  decorators: [(story: StoryFn, context) => withReduxProvider(story, context)],
+};
+export default preview;
