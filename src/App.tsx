@@ -1,11 +1,14 @@
 import type { JSX } from 'react';
-import Block from './components/layout/Block';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
 
 export default function App(): JSX.Element {
   return (
-    <Block direction="flex-col">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </Block>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<h1>home</h1>} />
+        <Route path="products" element={<h1>products</h1>} />
+      </Route>
+    </Routes>
   );
 }
