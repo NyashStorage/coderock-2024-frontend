@@ -1,11 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { createStore } from 'redux';
-import rootReducer from '../stores/rootReducer';
-
 import Header from '../components/Header';
-
-// Создаем заглушку для хранилища Redux
-const store = createStore(rootReducer);
 
 export default {
   title: 'Header',
@@ -18,9 +12,10 @@ export const Default = Template.bind({});
 
 export const AuthUser = Template.bind({});
 AuthUser.parameters = {
-  changeInitialState: true,
   customInitialState: {
-    token: 'abc',
+    auth: {
+      token: 'abc',
+    },
     users: {
       email: '',
       profile: {
@@ -32,3 +27,18 @@ AuthUser.parameters = {
 };
 
 export const AuthCompany = Template.bind({});
+AuthCompany.parameters = {
+  customInitialState: {
+    auth: {
+      token: 'abc',
+    },
+    users: {
+      email: '',
+      profile: {
+        firstName: 'Иван',
+        lastName: 'Иванов',
+        companyName: 'Суперское оружие',
+      },
+    },
+  },
+};
